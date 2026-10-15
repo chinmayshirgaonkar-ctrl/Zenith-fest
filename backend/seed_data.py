@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 import openpyxl
-from backend.database import get_db_connection, init_db
+from backend.database import get_db_connection, init_db, is_postgres
 
 def seed_events(seed_path: str = None):
     """
@@ -73,6 +73,12 @@ def seed_events(seed_path: str = None):
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (event_id, title, category, description, event_date, event_time, venue, capacity, fee, icon))
         inserted_count += 1
+
+    if is_postgres():
+        try:
+            cursor.execute("SELECT setval(pg_get_serial_sequence('events', 'id'), COALESCE((SELECT MAX(id) FROM events), 1))")
+        except Exception as e:
+            print(f"Notice on PostgreSQL sequence sync: {e}")
 
     conn.commit()
     conn.close()
