@@ -52,6 +52,20 @@ app.add_middleware(
 # API Endpoints
 # ==========================================
 
+@app.get("/", summary="Root health and index")
+def root():
+    return {
+        "status": "online",
+        "service": "Zenith '26 College Fest Management System API",
+        "docs": "/docs",
+        "endpoints": {
+            "events": "/api/events",
+            "stats": "/api/stats",
+            "registrations": "/api/registrations"
+        }
+    }
+
+
 @app.get("/api/events", response_model=List[EventOut], summary="List all events with computed available seats")
 def get_events(
     category: Optional[str] = Query(None, description="Filter by event category"),
