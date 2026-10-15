@@ -36,6 +36,7 @@ app = FastAPI(
     version="1.0.0",
     description="REST API for Zenith '26 College Fest Android and Web portals.",
     lifespan=lifespan,
+    redirect_slashes=False,
 )
 
 # Enable CORS for local development
@@ -53,6 +54,7 @@ app.add_middleware(
 # ==========================================
 
 @app.get("/", summary="Root health and index")
+@app.get("/api", summary="API overview")
 def root():
     return {
         "status": "online",
