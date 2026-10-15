@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="slate_900">#0F172A</color>
+    <color name="slate_800">#1E293B</color>
+    <color name="slate_700">#334155</color>
+    <color name="slate_400">#94A3B8</color>
+    <color name="slate_100">#F1F5F9</color>
+    <color name="violet_600">#7C3AED</color>
+    <color name="violet_500">#8B5CF6</color>
+    <color name="fuchsia_600">#C026D3</color>
+    <color name="amber_500">#F59E0B</color>
+    <color name="emerald_500">#10B981</color>
+    <color name="rose_500">#F43F5E</color>
+</resources>
