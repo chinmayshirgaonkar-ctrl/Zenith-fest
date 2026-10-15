@@ -75,8 +75,12 @@ fun ServerSettingsDialog(
                 // Presets
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     AssistChip(
-                        onClick = { urlText = "https://stars-authorization-cake-attachment.trycloudflare.com/" },
-                        label = { Text("🌐 Live Cloudflare Tunnel (Universal)", fontSize = 11.sp, color = Slate300) }
+                        onClick = { urlText = "https://zenith-fest-39rq.vercel.app/" },
+                        label = { Text("🚀 Live Vercel Cloud (Permanent)", fontSize = 11.sp, color = Slate300) }
+                    )
+                    AssistChip(
+                        onClick = { urlText = "https://another-kinase-emerald-football.trycloudflare.com/" },
+                        label = { Text("🌐 Cloudflare Tunnel", fontSize = 11.sp, color = Slate300) }
                     )
                     Row(
                         modifier = Modifier.fillMaxWidth(),

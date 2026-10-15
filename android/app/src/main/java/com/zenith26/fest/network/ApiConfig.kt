@@ -10,8 +10,8 @@ import androidx.compose.runtime.setValue
  * Can be changed at runtime if testing on a physical Android device on the same local Wi-Fi.
  */
 object ApiConfig {
-    // Live Cloudflare Tunnel URL - works universally across all physical phones and emulators
-    private const val DEFAULT_EMULATOR_URL = "https://stars-authorization-cake-attachment.trycloudflare.com/"
+    // Live Production Vercel URL - works permanently across all physical phones and emulators
+    private const val DEFAULT_EMULATOR_URL = "https://zenith-fest-39rq.vercel.app/"
 
     var baseUrl by mutableStateOf(DEFAULT_EMULATOR_URL)
         private set

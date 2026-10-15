@@ -4,11 +4,13 @@ from pathlib import Path
 from typing import List, Optional, Dict
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, HTTPException, status, Query
+from fastapi import FastAPI, HTTPException, status, Query, Request
+from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.database import get_db_connection, init_db
 from backend.seed_data import seed_events
+from backend.portal import PORTAL_HTML
 from backend.models import (
     EventOut,
     EventDetail,
@@ -53,9 +55,27 @@ app.add_middleware(
 # API Endpoints
 # ==========================================
 
-@app.get("/", summary="Root health and index")
-@app.get("/api", summary="API overview")
-def root():
+@app.get("/", summary="Zenith '26 College Fest Web Portal & API Index")
+def root(request: Request):
+    accept = request.headers.get("accept", "")
+    # If request is from a browser, serve the interactive Web Portal
+    if "text/html" in accept:
+        return HTMLResponse(content=PORTAL_HTML)
+    # Otherwise return the API status JSON
+    return {
+        "status": "online",
+        "service": "Zenith '26 College Fest Management System API",
+        "docs": "/docs",
+        "endpoints": {
+            "events": "/api/events",
+            "stats": "/api/stats",
+            "registrations": "/api/registrations"
+        }
+    }
+
+
+@app.get("/api", summary="API overview (JSON)")
+def api_overview():
     return {
         "status": "online",
         "service": "Zenith '26 College Fest Management System API",
