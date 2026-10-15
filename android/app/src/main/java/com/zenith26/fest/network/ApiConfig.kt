@@ -11,7 +11,7 @@ import androidx.compose.runtime.setValue
  */
 object ApiConfig {
     // Live Production Vercel URL - works permanently across all physical phones and emulators
-    private const val DEFAULT_EMULATOR_URL = "https://zenith-fest-39rq.vercel.app/"
+    private const val DEFAULT_EMULATOR_URL = "https://zenith-fest.vercel.app/"
 
     var baseUrl by mutableStateOf(DEFAULT_EMULATOR_URL)
         private set

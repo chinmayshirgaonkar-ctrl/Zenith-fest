@@ -75,7 +75,7 @@ fun ServerSettingsDialog(
                 // Presets
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     AssistChip(
-                        onClick = { urlText = "https://zenith-fest-39rq.vercel.app/" },
+                        onClick = { urlText = "https://zenith-fest.vercel.app/" },
                         label = { Text("🚀 Live Vercel Cloud (Permanent)", fontSize = 11.sp, color = Slate300) }
                     )
                     AssistChip(
